@@ -59,6 +59,7 @@ metadata:
 {{- if .Values.helm3_hook }}
   annotations:
     "helm.sh/hook": post-install,post-upgrade
+    "argocd.argoproj.io/hook": PostSync
     "helm.sh/hook-weight": "-5"
     "helm.sh/hook-delete-policy": before-hook-creation
 {{- end }}

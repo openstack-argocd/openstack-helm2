@@ -15,7 +15,6 @@ limitations under the License.
 {{- define "metadata.annotations.job.db_init" }}
 {{- if .Values.helm3_hook -}}
 helm.sh/hook: post-install,post-upgrade
-argocd.argoproj.io/hook: PostSync
 helm.sh/hook-weight: "-5"
 {{- end -}}
 {{- end }}

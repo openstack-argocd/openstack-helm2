@@ -58,7 +58,7 @@ metadata:
 {{ tuple $envAll "keystone" "fernet-setup" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 4 }}
 {{- if .Values.helm3_hook }}
   annotations:
-    "helm.sh/hook": post-install,post-upgrade
+    #"helm.sh/hook": post-install,post-upgrade
     "argocd.argoproj.io/hook": PostSync
     "helm.sh/hook-weight": "-5"
     "helm.sh/hook-delete-policy": before-hook-creation

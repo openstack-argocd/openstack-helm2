@@ -14,6 +14,7 @@ limitations under the License.
 
 {{- define "metadata.annotations.job.bootstrap" }}
 helm.sh/hook: post-install,post-upgrade
+"argocd.argoproj.io/hook": PostSync
 helm.sh/hook-weight: "5"
 {{- end }}
 

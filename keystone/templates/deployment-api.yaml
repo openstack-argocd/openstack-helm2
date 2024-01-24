@@ -51,7 +51,7 @@ spec:
       annotations:
         helm.sh/hook: post-install,post-upgrade
         #"argocd.argoproj.io/hook": PostSync
-        helm.sh/hook-weight: "-4"
+        helm.sh/hook-weight: "-3"
 {{ tuple $envAll | include "helm-toolkit.snippets.release_uuid" | indent 8 }}
         configmap-bin-hash: {{ tuple "configmap-bin.yaml" . | include "helm-toolkit.utils.hash" }}
         configmap-etc-hash: {{ tuple "configmap-etc.yaml" . | include "helm-toolkit.utils.hash" }}

@@ -14,8 +14,8 @@ limitations under the License.
 
 {{- define "metadata.annotations.job.db_sync" }}
 {{- if .Values.helm3_hook -}}
-#helm.sh/hook: post-install,post-upgrade
-"argocd.argoproj.io/hook": PreSync
+helm.sh/hook: post-install,post-upgrade
+#"argocd.argoproj.io/hook": PreSync
 helm.sh/hook-weight: "-4"
 {{- end -}}
 {{- end }}

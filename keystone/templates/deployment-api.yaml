@@ -35,6 +35,9 @@ kind: Deployment
 metadata:
   name: keystone-api
   annotations:
+    helm.sh/hook: post-install,post-upgrade
+    #"argocd.argoproj.io/hook": PostSync
+    helm.sh/hook-weight: "-3"
     {{ tuple $envAll | include "helm-toolkit.snippets.release_uuid" }}
   labels:
 {{ tuple $envAll "keystone" "api" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 4 }}
@@ -49,9 +52,6 @@ spec:
       labels:
 {{ tuple $envAll "keystone" "api" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 8 }}
       annotations:
-        helm.sh/hook: post-install,post-upgrade
-        #"argocd.argoproj.io/hook": PostSync
-        helm.sh/hook-weight: "-3"
 {{ tuple $envAll | include "helm-toolkit.snippets.release_uuid" | indent 8 }}
         configmap-bin-hash: {{ tuple "configmap-bin.yaml" . | include "helm-toolkit.utils.hash" }}
         configmap-etc-hash: {{ tuple "configmap-etc.yaml" . | include "helm-toolkit.utils.hash" }}

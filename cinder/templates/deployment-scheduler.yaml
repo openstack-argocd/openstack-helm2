@@ -27,7 +27,7 @@ metadata:
   name: cinder-scheduler
   annotations:
     helm.sh/hook: post-install,post-upgrade
-    helm.sh/hook-weight: "-6"
+    helm.sh/hook-weight: "0"
     {{ tuple $envAll | include "helm-toolkit.snippets.release_uuid" }}
   labels:
 {{ tuple $envAll "cinder" "scheduler" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 4 }}

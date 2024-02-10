@@ -29,7 +29,7 @@ metadata:
   name: cinder-backup
   annotations:
     helm.sh/hook: post-install,post-upgrade
-    helm.sh/hook-weight: "-1"
+    helm.sh/hook-weight: "-6"
     {{ tuple $envAll | include "helm-toolkit.snippets.release_uuid" }}
   labels:
 {{ tuple $envAll "cinder" "backup" | include "helm-toolkit.snippets.kubernetes_metadata_labels" | indent 4 }}
